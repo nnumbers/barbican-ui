@@ -76,8 +76,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Barbican UI'
-copyright = u'2017, OpenStack Foundation'
+project = 'Barbican UI'
+copyright = '2017, OpenStack Foundation'
 
 # Release notes are version independent.
 # The full version, including alpha/beta/rc tags.
@@ -229,8 +229,8 @@ latex_elements = {
 # [howto/manual]).
 latex_documents = [
     ('index', 'Barbican-UI.tex',
-     u'Barbican UI Documentation',
-     u'OpenStack Foundation', 'manual'),
+     'Barbican UI Documentation',
+     'OpenStack Foundation', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -259,10 +259,10 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', u'Barbican UI Documentation',
+    ('index', 'Barbican UI Documentation',
      'Documentation for the Barbican UI plugin to the Openstack\
       Dashboard (Horizon)',
-     [u'OpenStack'], 1)
+     ['OpenStack'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -276,7 +276,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     ('index', 'Barbican UI',
-     u'Barbican UI Documentation', u'OpenStack',
+     'Barbican UI Documentation', 'OpenStack',
      'Barbican UI',
      'Barbican User Interface', 'Miscellaneous'),
 ]
@@ -294,10 +294,10 @@ texinfo_documents = [
 # -- Options for Epub output --------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'Barbican UI'
-epub_author = u'OpenStack'
-epub_publisher = u'OpenStack'
-epub_copyright = u'2017, OpenStack'
+epub_title = 'Barbican UI'
+epub_author = 'OpenStack'
+epub_publisher = 'OpenStack'
+epub_copyright = '2017, OpenStack'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
