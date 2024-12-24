@@ -16,5 +16,5 @@ from horizon.browsers import views
 
 title = _("Secrets")
 urlpatterns = [
-    re_path('', views.AngularIndexView.as_view(title=title), name='index'),
+    re_path('secrets', views.AngularIndexView.as_view(title=title), name='index'),
 ]
