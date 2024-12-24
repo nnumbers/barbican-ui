@@ -13,8 +13,13 @@
 from django.urls import re_path
 from django.utils.translation import gettext_lazy as _
 from horizon.browsers import views
+from barbican_ui.content.secrets import panel
 
 title = _("Secrets")
+page_title = panel.Secrets.name
 urlpatterns = [
-    re_path('secrets', views.AngularIndexView.as_view(title=title), name='index'),
+    re_path(r'^$', 
+            views.AngularIndexView.as_view(title=title,
+                                           page_title=page_title),
+            name='index'),
 ]
