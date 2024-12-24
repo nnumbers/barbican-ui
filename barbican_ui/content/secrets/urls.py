@@ -18,7 +18,7 @@ from barbican_ui.content.secrets import panel
 title = _("Secrets")
 page_title = panel.Secrets.name
 urlpatterns = [
-    re_path(r'secrets', 
+    re_path(r'secrets/$', 
             views.AngularIndexView.as_view(title=title,
                                            page_title=page_title),
             name='index'),
