@@ -38,7 +38,7 @@
 
     function getSecret(id) {
       return apiService.get('/api/barbican/secrets/' + id)
-        .error(function() {
+        .catch(function() {
           var msg = gettext('Unable to retrieve the Secret with id: %(id).');
           toastService.add('error', interpolate(msg, {id: id}, true));
         });
@@ -46,7 +46,7 @@
 
     function getPayload(id) {
       return apiService.get('/api/barbican/payload/' + id)
-        .error(function() {
+        .catch(function() {
           var msg = gettext('Unable to retrieve the Secret Payload with id: %(id).');
           toastService.add('error', interpolate(msg, {id: id}, true));
         });
@@ -54,14 +54,14 @@
 
     function getSecrets() {
       return apiService.get('/api/barbican/secrets/')
-        .error(function() {
+        .catch(function() {
           toastService.add('error', gettext('Unable to retrieve the Secrets.'));
         });
     }
 
     function createSecret(params) {
       return apiService.put('/api/barbican/secrets/', params)
-        .error(function() {
+        .catch(function() {
           var msg = gettext('Unable to create the Secret with name: %(name)s');
           toastService.add('error', interpolate(msg, { name: params.name }, true));
         });
@@ -69,7 +69,7 @@
 
     function updateSecret(id, params) {
       return apiService.post('/api/barbican/secrets/' + id, params)
-        .error(function(error) {
+        .catch(function(error) {
           var msg = gettext('Unable to update the secret.');
           if('status_code' in error && error.status_code == 409) {
             msg = gettext('Only empty secrets can be updated with a value.');
@@ -80,7 +80,7 @@
 
     function deleteSecret(id, suppressError) {
       var promise = apiService.delete('/api/barbican/secrets/', [id]);
-      return suppressError ? promise : promise.error(function() {
+      return suppressError ? promise : promise.catch(function() {
         var msg = gettext('Unable to delete the Secret with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: id }, true));
       });
