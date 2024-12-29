@@ -51,7 +51,7 @@
           payloadFile: {
             type: 'string',
             format: 'base64',
-            maxSize: 10240
+            maxSize: 65535
           },
           algorithm: {
             type: 'string',
