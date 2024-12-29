@@ -43,8 +43,8 @@
     function cleanProperties() {
       var customProperties = {};
       Object.keys(model.spec).forEach(function(customKey) {
-        if(customKey.startsWith('custom')) {
-          var key = customKey.replace('custom', '');
+        if(customKey.startsWith('custom_')) {
+          var key = customKey.replace('custom_', '');
           if (model.spec[key] == 'custom') {
             customProperties[key] = model.spec[customKey];
           }
