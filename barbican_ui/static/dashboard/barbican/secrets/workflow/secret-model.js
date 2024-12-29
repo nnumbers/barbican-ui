@@ -55,8 +55,8 @@
       model.spec = Object.assign(model.spec, customProperties);
 
       if(
-        'payloadContentType' in model.spec &&
-        model.spec.payloadContentType == 'application/octet-stream'
+        'payload_content_type' in model.spec &&
+        model.spec.payload_content_type == 'application/octet-stream'
       ) {
         model.spec.payload = model.spec.payloadFile;
         model.spec.payload_content_encoding = 'base64';
@@ -78,8 +78,8 @@
       delete model.spec.id;
       delete model.spec.custom;
 
-      if('bitLength' in model.spec) {
-        model.spec.bitLength = parseInt(model.spec.bitLength);
+      if('bit_length' in model.spec) {
+        model.spec.bit_length = parseInt(model.spec.bit_length);
       }
 
       Object.keys(model.spec).forEach(function(key) {

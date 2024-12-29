@@ -30,7 +30,7 @@
           name: {
             type: 'string'
           },
-          secretType: {
+          secret_type: {
             type: 'string',
             default: 'opaque'
           },
@@ -41,7 +41,7 @@
             type: 'Date',
             default: new Date('1970-01-01T00:00:00')
           },
-          payloadContentType: {
+          payload_content_type: {
             type: 'string',
             default: ''
           },
@@ -57,7 +57,7 @@
             type: 'string',
             default: ''
           },
-          customAlgorithm: {
+          custom_algorithm: {
             type: 'string',
             default: '',
             required: true
@@ -66,15 +66,15 @@
             type: 'string',
             default: ''
           },
-          customMode: {
+          custom_mode: {
             type: 'string',
             required: true
           },
-          bitLength: {
+          bit_length: {
             type: 'string',
             default: ''
           },
-          customBitLength: {
+          custom_bit_length: {
             type: 'number',
             default: 2048,
             required: true
@@ -83,7 +83,7 @@
       };
 
       if(mode == 'update') {
-        schema.properties.payloadContentType.default = 'text/plain';
+        schema.properties.payload_content_type.default = 'text/plain';
       }
 
       return schema;

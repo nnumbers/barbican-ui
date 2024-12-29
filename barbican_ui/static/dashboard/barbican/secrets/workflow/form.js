@@ -36,7 +36,7 @@
         });
 
         fields.push({
-          key: 'secretType',
+          key: 'secret_type',
           title: gettext('Secret Type'),
           type: 'select',
           titleMap: [
@@ -133,7 +133,7 @@
        type: 'section',
        htmlClass: 'col-xs-12  col-sm-4',
        items: [{
-         key: 'payloadContentType',
+         key: 'payload_content_type',
          title: gettext('Payload Content Type'),
          type: 'select',
          titleMap: payloadTitleMap
@@ -146,21 +146,21 @@
        items: [{
          type: 'help',
          helpvalue: '<div><br/><br/>Your can add a value to your secret later.</div>',
-         condition: 'model.payloadContentType==""',
+         condition: 'model.payload_content_type==""',
        }, {
          key: 'payload',
          title: gettext('Payload'),
          type: 'textarea',
          placeholder: gettext('Payload of the secret'),
          required: true,
-         condition: 'model.payloadContentType=="text/plain"',
+         condition: 'model.payload_content_type=="text/plain"',
        }, {
          key: 'payloadFile',
          title: gettext('Secret File'),
          type:'base64file',
          placeholder: gettext('Payload file of the secret'),
          required: true,
-         condition: 'model.payloadContentType=="application/octet-stream"',
+         condition: 'model.payload_content_type=="application/octet-stream"',
          validationMessage: {
            checkFile: 'Please check the file'
          },
@@ -206,7 +206,7 @@
                {value: 'custom', name: gettext('custom')}
              ])
          }, {
-           key: 'customAlgorithm',
+           key: 'custom_algorithm',
            title: gettext('Custom Algorithm'),
            type: 'text',
            required: true,
@@ -234,7 +234,7 @@
              {value: 'custom', name: gettext('custom')}
            ])
          }, {
-           key: 'customMode',
+           key: 'custom_mode',
            title: gettext('Custom Mode'),
            type: 'text',
            required: true,
@@ -246,23 +246,23 @@
          type: 'section',
          htmlClass: 'col-xs-12 col-sm-4 ',
          items: [{
-           key: 'bitLength',
+           key: 'bit_length',
            title: gettext('Bit Length'),
            type: 'select',
            titleMap: [{
              value: '',
              name: gettext('none')
            }].concat(
-             offerdValues.bitLength.map(function(bitLength) {
+             offerdValues.bit_length.map(function(bit_length) {
                return {
-                 value: bitLength.toString(),
-                 name: bitLength +' '+ gettext('bit')
+                 value: bit_length.toString(),
+                 name: bit_length +' '+ gettext('bit')
                };
              })).concat([
              {value: 'custom', name: gettext('custom')}
            ])
          }, {
-           key: 'customBitLength',
+           key: 'custom_bit_length',
            title: gettext('Custom Bit Length'),
            validationMessage: {
              isBitNumber: 'Please enter a valid bit length.'
@@ -273,7 +273,7 @@
              }
            },
            type: 'number',
-           condition: 'model.bitLength=="custom"',
+           condition: 'model.bit_length=="custom"',
          }]
        });
 

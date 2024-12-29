@@ -84,7 +84,7 @@
         model.spec.bit_length = response.data.bit_length;
         model.spec.algorithm = response.data.algorithm;
 
-        if(model.spec.bit_length != null && !(model.spec.bit_length in offerdValues.bitLength)) {
+        if(model.spec.bit_length != null && !(model.spec.bit_length in offerdValues.bit_length)) {
           model.spec.custom_bit_length = model.spec.bit_length;
           model.spec.bit_length = 'custom';
         }
