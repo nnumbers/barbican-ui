@@ -133,11 +133,10 @@
       return api.updateSecret(id, model.spec).then(success);
     }
 
-    function success(response) {
-      response.data.id = response.data.uuid;
-      toast.add('success', interpolate(message.success, [response.data.id]));
+    function success() {
+      toast.add('success', interpolate(message.success, [id]));
       var result = actionResult.getActionResult()
-                   .updated(resourceType, response.data.id);
+                   .updated(resourceType, id);
       if (result.result.failed.length === 0 && result.result.updated.length > 0) {
         $location.path('/project/secrets');
       } else {
