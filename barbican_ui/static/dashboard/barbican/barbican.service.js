@@ -60,7 +60,7 @@
     }
 
     function createSecret(params) {
-      return apiService.put('/api/barbican/secrets/', params)
+      return apiService.post('/api/barbican/secrets/', params)
         .catch(function() {
           var msg = gettext('Unable to create the Secret with name: %(name)s');
           toastService.add('error', interpolate(msg, { name: params.name }, true));
@@ -68,7 +68,14 @@
     }
 
     function updateSecret(id, params) {
-      return apiService.post('/api/barbican/secrets/' + id, params)
+      
+      return apiService.put('/api/barbican/secrets/' + id, params.payload,
+            { 
+              headers: {
+                'Content-Type': params.payload_content_type,
+                'Content-Encoding': params.payload_content_encoding
+              }
+            } )
         .catch(function(error) {
           var msg = gettext('Unable to update the secret.');
           if('status_code' in error && error.status_code == 409) {
@@ -84,6 +91,18 @@
         var msg = gettext('Unable to delete the Secret with id: %(id)s');
         toastService.add('error', interpolate(msg, { id: id }, true));
       });
+    }
+
+    function notify(event) {
+      onProgress(Math.round(event.loaded / event.total * 100));
+    }
+
+    function onError(error) {
+      if (error && error.data) {
+        toastService.add('error', error);
+      } else {
+        toastService.add('error', gettext('Unable to create the secret.'));
+      }
     }
   }
 }());
