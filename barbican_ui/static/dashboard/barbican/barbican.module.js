@@ -37,7 +37,7 @@
     $provide.constant('horizon.dashboard.barbican.basePath', path);
     $provide.constant(
       'horizon.dashboard.barbican.offerdValues', {
-        bit_length: [64, 128, 256, 1024],
+        bit_length: [64, 128, 256, 1024, 2048],
         algorithm: ['aes','des','3des','twofish','sha1','rsa'],
         mode: ['cbc', 'cfb', 'ctr', 'ecb', 'ofb']
       }

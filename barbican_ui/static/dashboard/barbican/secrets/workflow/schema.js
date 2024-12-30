@@ -76,7 +76,7 @@
           },
           custom_bit_length: {
             type: 'number',
-            default: 2048,
+            default: 4096,
             required: true
           }
         }
