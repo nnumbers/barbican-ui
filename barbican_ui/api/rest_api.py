@@ -156,7 +156,7 @@ class Secrets(generic.View):
         return rest_utils.JSONResponse({}, 204)
 
     @rest_utils.ajax(data_required=True)
-    def put(self, request):
+    def post(self, request):
         """
         Create a new Secret.
         Returns the new Secret object on success.
@@ -171,3 +171,16 @@ class Secrets(generic.View):
         )
 
         return response
+
+    @rest_utils.ajax(data_required=True)
+    def put(self, request):
+        """
+        Update a Secret.
+        Returns HTTP 204 (no content) on successful update.
+        """
+
+        for secret_ref_id in request.DATA:
+            secret_ref = get_full_secret_ref(request, secret_ref_id)
+            client.secret_update(request, secret_ref_id, **request.DATA)
+
+        return rest_utils.JSONResponse({}, 204)
