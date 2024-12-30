@@ -120,14 +120,19 @@ def secret_update(request, secret_ref, **kwargs):
     kwargs = map_arguments(kwargs)
 
     if 'payload' in kwargs:
-        payload = kwargs['payload']
+        # python-barbicanclient does apply a rule checking if payload is bytes it sets content-type as application/octet-stream,
+        # if payload is str sets content-type as text/plain. So, if we want payload_content_type to be "application/octet-stream",
+        # we need to cast payload from str to bytes.
+        if kwargs['payload_content_type'] == "application/octet-stream" and type(kwargs['payload']) is str:
+            payload = bytes(kwargs['payload'], "utf-8")
+        else:
+            payload = kwargs['payload']
     else:
         raise exceptions.BadRequest(
             'No payload provided in request.'
         )
 
     return apiclient(request).secrets.update(secret_ref, payload)
-
 
 def secret_delete(request, secret_ref_id):
     apiclient(request).secrets.delete(secret_ref_id)
