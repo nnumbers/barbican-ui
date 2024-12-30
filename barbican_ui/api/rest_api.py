@@ -83,7 +83,7 @@ class Secret(generic.View):
         )
 
     @rest_utils.ajax(data_required=True)
-    def post(self, request, secret_ref_id):
+    def put(self, request, secret_ref_id):
         """
         Update a Secret.
         Returns the updated Secret object on success.
@@ -93,10 +93,11 @@ class Secret(generic.View):
 
         try:
             client.secret_update(request, secret_ref, **request.DATA)
-            return rest_utils.CreatedResponse(
-                '/api/barbican/secret/%s' % secret_ref, {
-                    'uuid': secret_ref
-                })
+            # return rest_utils.CreatedResponse(
+            #     '/api/barbican/secret/%s' % secret_ref, {
+            #         'uuid': secret_ref
+            #     })
+            return rest_utils.JSONResponse({}, 204)
         except barbicanclient.exceptions.HTTPClientError as error:
             if error.status_code == 409:
                 return rest_utils.JSONResponse({
@@ -156,7 +157,7 @@ class Secrets(generic.View):
         return rest_utils.JSONResponse({}, 204)
 
     @rest_utils.ajax(data_required=True)
-    def put(self, request):
+    def post(self, request):
         """
         Create a new Secret.
         Returns the new Secret object on success.
