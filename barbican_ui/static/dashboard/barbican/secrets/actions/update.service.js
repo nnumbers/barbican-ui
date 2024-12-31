@@ -123,9 +123,7 @@
     }
 
     function allowed() {
-      return $qExtensions.booleanAsPromise( 'payload_content_type' in model.spec && 
-            model.spec.payload_content_type );
-      // return $qExtensions.booleanAsPromise(true);
+      return $qExtensions.booleanAsPromise(true);
       // fixme: if you need to set policy, change as follow
       //return policy.ifAllowed({ rules: [['secret', 'update_secret']] });
     }
