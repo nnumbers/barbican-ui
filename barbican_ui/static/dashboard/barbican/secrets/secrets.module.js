@@ -127,7 +127,7 @@
       'singleton': true
     })
     .append({
-      'label': gettext('status'),
+      'label': gettext('Status'),
       'name': 'status',
       'singleton': true
     })
