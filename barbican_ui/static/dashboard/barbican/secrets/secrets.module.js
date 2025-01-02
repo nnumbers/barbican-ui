@@ -122,6 +122,21 @@
       'singleton': true
     })
     .append({
+      'label': gettext('Algorithm'),
+      'name': 'algorithm',
+      'singleton': true
+    })
+    .append({
+      'label': gettext('Bit Length'),
+      'name': 'bit_length',
+      'singleton': true
+    })
+    .append({
+      'label': gettext('Mode'),
+      'name': 'mode',
+      'singleton': true
+    })
+    .append({
       'label': gettext('Status'),
       'name': 'status',
       'singleton': true
