@@ -63,8 +63,12 @@ def change_to_dict(secret):
 def get_full_secret_ref(request, secret_ref_id):
     """Get the full secret reference for a secret reference id"""
 
-    endpoint = base.url_for(request, 'key-manager')
+    endpoint = base.url_for(request, 'key-manager', 'public' )
     secret_ref = endpoint + '/v1/secrets/' + secret_ref_id
+
+    LOG.debug("secret_ref_id: %s, endpoint: %s, secret_ref: %s" % 
+            ( secret_ref_id, endpoint, secret_ref ) )
+
     return secret_ref
 
 
