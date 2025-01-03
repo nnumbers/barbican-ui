@@ -72,7 +72,7 @@
       return apiService.put('/api/barbican/secrets/' + id, params)
         .catch(function(error) {
           var msg = gettext('Unable to update the secret.');
-          if('status_code' in error && error.status_code == 409) {
+          if(('status_code' in error && error.status_code == 409)||('status' in error && error.status == 409)) {
             msg = gettext('Only empty secrets can be updated with a value.');
           }
           toastService.add('error', interpolate(msg, {}, true));
