@@ -49,7 +49,7 @@ def get_auth_params_from_request(request):
     request.user.token.id,
     request.user.tenant_id,
     request.user.token.project.get('domain_id'),
-    base.url_for(request, 'key-manager'),
+    base.url_for(request, 'key-manager', 'public'),
     base.url_for(request, 'identity')
     )
 
