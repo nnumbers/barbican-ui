@@ -62,7 +62,7 @@
     // set default url for index view. this will be used for reproducing
     // sidebar and breadcrumb when refreshing or accessing directly
     // details view.
-    .setDefaultIndexUrl('/barbican/secrets/')
+    .setDefaultIndexUrl('/project/secrets/')
     // specify items for table row items, summary view and details view
     .setProperties(properties())
     // get items for table
