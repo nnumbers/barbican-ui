@@ -77,7 +77,7 @@
       urlFunction: service.urlFunction
     })
     .append({
-      id: 'payload_content_type',
+      id: 'content_types',
       priority: 1,
       filters: ['noValue']
     })
@@ -154,7 +154,7 @@
       name: { label: gettext('Name'), filters: ['noName'] },
       secret_ref: { label: gettext('Url'), filters: ['noName'] },
       description: { label: gettext('Description'), filters: ['noValue'] },
-      payload_content_type: {
+      content_types: {
         label: gettext('Content Type'),
         filters: [
           'noValue',
