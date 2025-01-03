@@ -76,7 +76,7 @@ def map_arguments(arguments):
     return new_arguments
 
 
-#@memoized
+@memoized
 def apiclient(request, version=None):
     (
         username,
