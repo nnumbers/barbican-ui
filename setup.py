@@ -24,7 +24,7 @@ except ImportError:
 
 setuptools.setup(
     name='barbican-ui',
-    version='0.1.14',
+    version='0.1.15',
     summary = 'Barbican User Interface',
     description_file ='README.rst',
     author='OpenStack',
